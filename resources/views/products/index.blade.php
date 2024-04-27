@@ -2,6 +2,10 @@
 
 @section('content')
     <div class="row">
+        <div class="col-2">
+            @component('components.sidebar', ['categories' => $categories, 'major_category_names' => $major_category_names])
+            @endcomponent
+        </div>
         <div class="col-9">
             <div class="container mt-4">
                 <div class="row w-100">
