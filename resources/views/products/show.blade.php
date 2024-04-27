@@ -62,6 +62,7 @@
                 <div class="row">
                     @foreach ($reviews as $review)
                         <div class="offset-md-5 col-md-5">
+                            <p class="h3">{{ $review->title }}</p>
                             <p class="h3">{{ $review->content }}</p>
                             <label>{{ $review->created_at }} {{ $review->user->name }}</label>
                         </div>
@@ -73,6 +74,12 @@
                         <div class="offset-md-5 col-md-5">
                             <form action="{{ route('reviews.store') }}" method="POST">
                                 @csrf
+                                <h4>タイトル</h4>
+                                @error('title')
+                                    <strong>タイトルを入力してください</strong>
+                                @enderror
+                                <input type="text" name="title" class="form-control m-2">
+
                                 <h4>レビュー内容</h4>
                                 @error('content')
                                     <strong>レビュー内容を入力してください</strong>
