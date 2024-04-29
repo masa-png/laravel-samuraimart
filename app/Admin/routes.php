@@ -2,6 +2,7 @@
 
 use App\Admin\Controllers\CategoryController;
 use App\Admin\Controllers\ProductController;
+use App\Models\MajorCategory;
 use Illuminate\Routing\Router;
 
 Admin::routes();
@@ -16,4 +17,5 @@ Route::group([
     $router->get('/', 'HomeController@index')->name('home');
     $router->resource('categories', CategoryController::class);
     $router->resource('products', ProductController::class);
+    $router->resource('major-categories', MajorCategory::class);
 });
