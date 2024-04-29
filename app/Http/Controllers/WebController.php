@@ -15,8 +15,10 @@ class WebController extends Controller
 
         $major_categories = MajorCategory::all();
 
+        $recommend_products = Product::where('recommend_flag', true)->take(2)->get();
+
         $recently_products = Product::orderBy('created_at', 'desc')->take(4)->get();
 
-        return view('web.index', compact('major_categories', 'categories', 'recently_products'));
+        return view('web.index', compact('major_categories', 'categories', 'recently_products', 'recommend_products'));
     }
 }
