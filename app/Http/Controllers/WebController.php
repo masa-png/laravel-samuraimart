@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\MajorCategory;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class WebController extends Controller
@@ -14,6 +15,8 @@ class WebController extends Controller
 
         $major_categories = MajorCategory::all();
 
-        return view('web.index', compact('major_categories', 'categories'));
+        $recently_products = Product::orderBy('created_at', 'desc')->take(4)->get();
+
+        return view('web.index', compact('major_categories', 'categories', 'recently_products'));
     }
 }
