@@ -20,14 +20,16 @@
                         </thead>
                         <tbody>
                             @foreach ($billings as $billing)
-                                <td>{{ $billing['code'] }}</td>
-                                <td>{{ $billing['created_at'] }}</td>
-                                <td>{{ $billing['total'] }}</td>
-                                <td>
-                                    <a href="{{ route('mypage.cart_history_show', $billing['id']) }}">
-                                        詳細を確認する
-                                    </a>
-                                </td>
+                                <tr>
+                                    <td>{{ $billing['code'] }}</td>
+                                    <td>{{ $billing['created_at'] }}</td>
+                                    <td>{{ $billing['total'] }}</td>
+                                    <td>
+                                        <a href="{{ route('mypage.cart_history_show', $billing['id']) }}">
+                                            詳細を確認する
+                                        </a>
+                                    </td>
+                                </tr>
                             @endforeach
                         </tbody>
                     </table>
