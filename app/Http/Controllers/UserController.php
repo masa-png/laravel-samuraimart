@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ShoppingCart;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class UserController extends Controller
 {
@@ -13,6 +15,21 @@ class UserController extends Controller
         $user = Auth::user();
 
         return view('users.mypage', compact('user'));
+    }
+
+    public function cart_history_index(Request $request)
+    {
+        $page = $request->page != null ? $request->page : 1;
+        $user_id = Auth::user()->id;
+        $billings = ShoppingCart::getCurrentUserOrders($user_id);
+        $total = count($billings);
+        $billings = new LengthAwarePaginator(array_slice($billings, ($page - 1) * 15, 15), $total, 15, $page, array('path' => $request->url()));
+
+        return view('users.cart_history_index', compact('billings', 'total'));
+    }
+
+    public function cart_history_show()
+    {
     }
 
     /**
