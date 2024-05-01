@@ -25,7 +25,7 @@
                                     <td>{{ $billing['created_at'] }}</td>
                                     <td>{{ $billing['total'] }}</td>
                                     <td>
-                                        <a href="{{ route('mypage.cart_history_show', $billing['id']) }}">
+                                        <a href="{{ route('mypage.cart_history_show', ['num' => $billing['id']]) }}">
                                             詳細を確認する
                                         </a>
                                     </td>
