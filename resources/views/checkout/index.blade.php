@@ -70,7 +70,7 @@
                                     小計
                                 </div>
                                 <div class="col-md-7">
-                                    ¥{{ number_fotmat($total - $carriage_cost) }}
+                                    ¥{{ number_format($total - $carriage_cost) }}
                                 </div>
                             </div>
 
@@ -79,7 +79,7 @@
                                     送料
                                 </div>
                                 <div class="col-md-7">
-                                    ¥{{ number_fotmat($carriage_cost) }}
+                                    ¥{{ number_format($carriage_cost) }}
                                 </div>
                             </div>
 
@@ -88,7 +88,7 @@
                                     <span class="fs-5 fw-bold">合計</span>
                                 </div>
                                 <div class="col-7 d-flex align-items-center">
-                                    <span class="fs-5 fw-bold">¥{{ number_fotmat($total) }}</span><span class="smail">
+                                    <span class="fs-5 fw-bold">¥{{ number_format($total) }}</span><span class="smail">
                                         (税込) </span>
                                 </div>
                             </div>

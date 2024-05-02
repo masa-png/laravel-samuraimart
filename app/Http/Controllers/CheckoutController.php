@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Stripe\Checkout\Session;
 use Stripe\Stripe;
+use Illuminate\Support\Facades\DB;
 
 class CheckoutController extends Controller
 {
@@ -30,7 +31,7 @@ class CheckoutController extends Controller
             $carriage_cost = env('CARRIAGE');
         }
 
-        return view('carts.index', compact('cart', 'total', 'carriage_cost'));
+        return view('checkout.index', compact('cart', 'total', 'carriage_cost'));
     }
 
     public function store(Request $request)
